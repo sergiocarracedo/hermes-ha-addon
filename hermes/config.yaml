@@ -3,6 +3,7 @@ version: "2026.9.24-1"
 slug: hermes
 description: Hermes Agent dashboard and terminal in Home Assistant
 url: https://github.com/sergiocarracedo/hermes-ha-addon
+image: ghcr.io/sergiocarracedo/hermes-ha-addon
 arch:
   - amd64
   - aarch64
