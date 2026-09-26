@@ -1,0 +1,25 @@
+hermes/config.yaml
+  s_a0697cb0ff7cf4::t_3c11fb3109d10d 2
+hermes/ingress.conf
+  s_a0697cb0ff7cf4::t_a2f217e4f1506b 29
+tests/smoke.sh
+  s_a0697cb0ff7cf4::t_a2f217e4f1506b 23
+CHANGELOG.md
+  s_a0697cb0ff7cf4::t_3c11fb3109d10d 3-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "a6a81ae75daf859eced94f7572bc51428624969a",
+  "prompts": {},
+  "sessions": {
+    "s_a0697cb0ff7cf4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f266c11c7ffeDsIjmNv72dMBAx",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
