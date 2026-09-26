@@ -1,0 +1,21 @@
+hermes/Dockerfile
+  s_a0697cb0ff7cf4::t_e350cf50b61aeb 30-31
+  s_a0697cb0ff7cf4::t_3deb68e5fd2f32 27-29
+  s_a0697cb0ff7cf4::t_fdba8ca93ff59d 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "33ad74049f3462c43d644d0dd808175b4bc435f7",
+  "prompts": {},
+  "sessions": {
+    "s_a0697cb0ff7cf4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f266c11c7ffeDsIjmNv72dMBAx",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
