@@ -20,7 +20,7 @@ from agent.opencode_affinity import opencode_session_headers
 
 base = "http://127.0.0.1:8099"
 prefix = "/api/hassio_ingress/smoke"
-headers = {"X-Ingress-Path": prefix}
+headers = {"Host": "homeassistant.local", "X-Ingress-Path": prefix}
 
 def get(path):
     return urllib.request.urlopen(urllib.request.Request(base + path, headers=headers), timeout=10).read()
