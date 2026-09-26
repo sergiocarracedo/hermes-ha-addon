@@ -1,0 +1,32 @@
+CHANGELOG.md
+  s_a0697cb0ff7cf4::t_774f393a106868 1-7
+.github/workflows/check-hermes-release.yml
+  s_a0697cb0ff7cf4::t_774f393a106868 1-42
+.github/workflows/publish-image.yml
+  s_a0697cb0ff7cf4::t_de44106abcbc25 23
+  s_a0697cb0ff7cf4::t_774f393a106868 1-22,24-50
+hermes/config.yaml
+  s_a0697cb0ff7cf4::t_774f393a106868 6
+.github/AUTOMATION.md
+  s_a0697cb0ff7cf4::t_774f393a106868 1-7
+README.md
+  s_a0697cb0ff7cf4::t_774f393a106868 3,11,15
+.github/scripts/bump-hermes.sh
+  s_a0697cb0ff7cf4::t_774f393a106868 1-47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e5865260d6ee90aa15503231d4e8965641fdc39a",
+  "prompts": {},
+  "sessions": {
+    "s_a0697cb0ff7cf4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f266c11c7ffeDsIjmNv72dMBAx",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
