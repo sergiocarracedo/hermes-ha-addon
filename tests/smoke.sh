@@ -30,7 +30,12 @@ assert f'window.__HERMES_BASE_PATH__="{prefix}"' in page
 assert f'href="{prefix}/terminal/"' in page
 assert 'aria-label="Open Hermes terminal"' in page
 asset = re.search(r'src="' + re.escape(prefix) + r'(/assets/[^"]+)"', page)
-assert asset and get(asset.group(1))
+assert asset
+bundle = get(asset.group(1)).decode()
+assert f'"{prefix}/assets/SystemPage-' in bundle
+assert f'"{prefix}/assets/xterm-' in bundle
+mapped_page = re.search(re.escape(prefix) + r'/assets/(SystemPage-[^" ]+\.js)', bundle)
+assert mapped_page and get("/assets/" + mapped_page.group(1))
 assert b"ttyd" in get("/terminal/")
 assert opencode_session_headers("opencode-go", "https://opencode.ai/zen/go/v1").get("x-opencode-session")
 print("Dashboard ingress and terminal: OK")

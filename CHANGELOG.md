@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-3
+
+- Rewrite lazy-loaded JavaScript chunk paths through the Home Assistant ingress prefix.
+
 ## 2026.9.24-2
 
 - Forward each ingress request using its upstream Host header so Hermes accepts the dashboard Host validation.
