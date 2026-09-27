@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-10
+
+- Install nano in the add-on container.
+
 ## 2026.9.24-9
 
 - Export the Hermes virtual environment path from the login shell profile used by the terminal.
