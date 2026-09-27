@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-6
+
+- Forward the dashboard WebSocket Origin as the loopback upstream origin so embedded PTY chat passes Hermes' origin validation.
+
 ## 2026.9.24-5
 
 - Avoid protocol-relative `//api/...` URLs in Hermes' lazy chunk preloader.

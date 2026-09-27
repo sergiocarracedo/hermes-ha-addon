@@ -13,7 +13,9 @@ for attempt in {1..30}; do
 done
 
 docker exec -i "$name" /opt/hermes/.venv/bin/python - <<'PY'
+import base64
 import re
+import socket
 import urllib.request
 from urllib.parse import urljoin
 
@@ -47,5 +49,23 @@ assert urljoin(f"http://homeassistant.local{prefix}/", resolved_path) == f"http:
 assert get("/assets/" + mapped_page.group(1))
 assert b"ttyd" in get("/terminal/")
 assert opencode_session_headers("opencode-go", "https://opencode.ai/zen/go/v1").get("x-opencode-session")
+
+token = re.search(r'window.__HERMES_SESSION_TOKEN__="([^"]+)"', page).group(1)
+assert "window.__HERMES_AUTH_REQUIRED__=false" in page
+key = base64.b64encode(b"0123456789abcdef").decode()
+request = (
+    "GET /api/pty?token=" + token + " HTTP/1.1\r\n"
+    "Host: homeassistant.local:8123\r\n"
+    "Origin: http://homeassistant.local:8123\r\n"
+    "Connection: Upgrade\r\n"
+    "Upgrade: websocket\r\n"
+    "Sec-WebSocket-Version: 13\r\n"
+    f"Sec-WebSocket-Key: {key}\r\n"
+    f"X-Ingress-Path: {prefix}\r\n\r\n"
+).encode()
+with socket.create_connection(("127.0.0.1", 8099), timeout=10) as ws:
+    ws.sendall(request)
+    response = ws.recv(4096)
+assert response.startswith(b"HTTP/1.1 101 Switching Protocols"), response.decode(errors="replace")
 print("Dashboard ingress and terminal: OK")
 PY
