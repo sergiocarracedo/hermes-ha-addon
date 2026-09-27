@@ -1,0 +1,21 @@
+CHANGELOG.md
+  s_a0697cb0ff7cf4::t_8d6fd74b25495b 3-6
+hermes/config.yaml
+  s_a0697cb0ff7cf4::t_8d6fd74b25495b 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4c53b9acde195922bacf0d9eb297bb909e557d8f",
+  "prompts": {},
+  "sessions": {
+    "s_a0697cb0ff7cf4": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f266c11c7ffeDsIjmNv72dMBAx",
+        "model": "gpt-5.6-terra"
+      },
+      "human_author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
