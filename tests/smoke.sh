@@ -4,6 +4,7 @@ set -euo pipefail
 name="hermes-ha-smoke-$$"
 trap 'docker rm -f "$name" >/dev/null 2>&1 || true' EXIT
 docker run -d --rm --name "$name" hermes-ha-addon:test >/dev/null
+docker exec "$name" bash -lic 'test "$(command -v hermes)" = /opt/hermes/.venv/bin/hermes && alias ll | grep -F "ls -alih"'
 
 for attempt in {1..30}; do
   if docker exec "$name" curl -fsS http://127.0.0.1:9120/ -o /dev/null 2>/dev/null; then
