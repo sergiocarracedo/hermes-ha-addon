@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-5
+
+- Avoid protocol-relative `//api/...` URLs in Hermes' lazy chunk preloader.
+
 ## 2026.9.24-4
 
 - Inject an ingress-aware base URL so lazy dashboard resources resolve against the Home Assistant origin.
