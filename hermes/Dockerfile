@@ -17,8 +17,7 @@ ENV HERMES_DASHBOARD=1 \
     HERMES_DASHBOARD_PORT=9120 \
     API_SERVER_ENABLED=true \
     API_SERVER_HOST=127.0.0.1 \
-    HERMES_GATEWAY_BOOTSTRAP_STATE=running \
-    PATH="/opt/hermes/.venv/bin:${PATH}"
+    HERMES_GATEWAY_BOOTSTRAP_STATE=running
 
 COPY ingress.conf /etc/nginx/hermes-ingress.conf
 COPY addon-run.sh /usr/local/bin/hermes-addon-run

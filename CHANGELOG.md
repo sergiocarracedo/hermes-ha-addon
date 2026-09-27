@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-9
+
+- Export the Hermes virtual environment path from the login shell profile used by the terminal.
+
 ## 2026.9.24-8
 
 - Add the Hermes virtual environment to the shell PATH and define the `ll` alias in login shells.
