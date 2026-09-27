@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-4
+
+- Inject an ingress-aware base URL so lazy dashboard resources resolve against the Home Assistant origin.
+
 ## 2026.9.24-3
 
 - Rewrite lazy-loaded JavaScript chunk paths through the Home Assistant ingress prefix.

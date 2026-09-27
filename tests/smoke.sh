@@ -15,6 +15,7 @@ done
 docker exec -i "$name" /opt/hermes/.venv/bin/python - <<'PY'
 import re
 import urllib.request
+from urllib.parse import urljoin
 
 from agent.opencode_affinity import opencode_session_headers
 
@@ -27,6 +28,7 @@ def get(path):
 
 page = get("/").decode()
 assert f'window.__HERMES_BASE_PATH__="{prefix}"' in page
+assert f'<base href="{prefix}/">' in page
 assert f'href="{prefix}/terminal/"' in page
 assert 'aria-label="Open Hermes terminal"' in page
 asset = re.search(r'src="' + re.escape(prefix) + r'(/assets/[^"]+)"', page)
@@ -36,6 +38,7 @@ assert f'"{prefix}/assets/SystemPage-' in bundle
 assert f'"{prefix}/assets/xterm-' in bundle
 mapped_page = re.search(re.escape(prefix) + r'/assets/(SystemPage-[^" ]+\.js)', bundle)
 assert mapped_page and get("/assets/" + mapped_page.group(1))
+assert urljoin(f"http://homeassistant.local{prefix}/", "assets/SystemPage.js") == f"http://homeassistant.local{prefix}/assets/SystemPage.js"
 assert b"ttyd" in get("/terminal/")
 assert opencode_session_headers("opencode-go", "https://opencode.ai/zen/go/v1").get("x-opencode-session")
 print("Dashboard ingress and terminal: OK")
