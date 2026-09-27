@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-7
+
+- Forward all dashboard proxy headers in the same nginx location; preserve the valid loopback Origin for PTY chat WebSockets.
+
 ## 2026.9.24-6
 
 - Forward the dashboard WebSocket Origin as the loopback upstream origin so embedded PTY chat passes Hermes' origin validation.
