@@ -1,15 +1,52 @@
 # Hermes Agent for Home Assistant
 
-Runs [Hermes Agent](https://github.com/NousResearch/hermes-agent) `v2026.9.24` as a Home Assistant add-on. The add-on page opens the Hermes dashboard; the floating **>_** link opens a writable terminal in a new tab. Both are available only through Home Assistant ingress. Home Assistant maps the add-on's persistent data directory to Hermes's `/opt/data`. GitHub Actions publishes a multi-architecture image to GHCR; the Pi pulls the image rather than building Hermes locally.
+<p align="center">
+  <img src="hermes/logo.png" alt="Hermes Agent logo" width="240">
+</p>
+
+Run [Hermes Agent](https://github.com/NousResearch/hermes-agent) in Home Assistant. The add-on provides the Hermes dashboard and a writable terminal through Home Assistant ingress, so neither service is exposed directly to your network.
 
 ## Install
 
-In Home Assistant, open **Settings → Add-ons → Add-on Store → ⋮ → Repositories**, add `https://github.com/sergiocarracedo/hermes-ha-addon`, install **Hermes Agent**, and start it. Open its page or enable **Show in sidebar**. Configure your model and credentials in the dashboard or terminal. Installing this separate add-on does not migrate the old add-on's data.
+1. In Home Assistant, go to **Settings → Add-ons → Add-on Store**.
+2. Select the three-dot menu in the upper-right corner, then choose **Repositories**.
+3. Add this repository URL:
 
-For OpenCode Go, select its built-in provider in Hermes and add your OpenCode credentials in the dashboard or terminal. This Hermes release sends `x-opencode-session` to OpenCode Go. If you select a custom endpoint, make sure it resolves to an OpenCode target; otherwise Hermes will not attach the header automatically.
+   ```text
+   https://github.com/sergiocarracedo/hermes-ha-addon
+   ```
 
-The upstream image supervises the gateway and dashboard. This add-on preserves that entrypoint, adding only nginx for ingress and ttyd for terminal access. Neither dashboard nor terminal has a public host port. The GHCR package must be public so Home Assistant can pull it without registry credentials.
+4. Close the repository dialog and search the Add-on Store for **Hermes Agent**.
+5. Open **Hermes Agent**, select **Install**, then wait for the download to finish.
+6. Select **Start**.
+7. Optionally enable **Show in sidebar**, then select **Open Web UI** to open the Hermes dashboard.
 
-## Verify locally
+## First setup
 
-For local tests, build with `docker build --build-arg BUILD_VERSION=2026.9.24-1 --build-arg BUILD_ARCH=amd64 -t hermes-ha-addon:test hermes` and run `bash tests/smoke.sh`. The published Home Assistant app pulls the multi-arch GHCR image instead of building on the Pi.
+1. Open the Hermes dashboard from the add-on page or the Home Assistant sidebar.
+2. Select a model provider and add its credentials in **Models** or **Keys**.
+3. Start a new chat to confirm Hermes can answer requests.
+
+Use the floating **>_** button in the dashboard to open a terminal when you need to run Hermes commands directly. Hermes stores its configuration, credentials, chats, skills, and other persistent data in the add-on data directory (`/opt/data`).
+
+Installing this add-on does not migrate data from another Hermes installation.
+
+## Use with OpenCode Go
+
+Select Hermes's built-in **OpenCode Go** provider and add your OpenCode credentials in the dashboard or terminal. Hermes automatically sends the `x-opencode-session` header for this provider. If you use a custom endpoint instead, it must resolve to an OpenCode target for Hermes to attach that header.
+
+## Updates
+
+New add-on releases appear in Home Assistant's add-on page. Select **Update**, then restart Hermes when Home Assistant prompts you. Published releases include amd64 and aarch64 images, so Home Assistant downloads the image instead of building Hermes on the device.
+
+## Development
+
+Build and smoke-test the add-on locally:
+
+```bash
+docker build \
+  --build-arg BUILD_VERSION=2026.9.24-11 \
+  --build-arg BUILD_ARCH=amd64 \
+  -t hermes-ha-addon:test hermes
+bash tests/smoke.sh
+```
