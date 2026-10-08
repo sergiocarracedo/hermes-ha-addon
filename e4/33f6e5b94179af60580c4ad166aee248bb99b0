@@ -1,0 +1,14 @@
+hermes/Dockerfile
+  h_f90ee31b03fc41 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e433f6e5b94179af60580c4ad166aee248bb99b0",
+  "prompts": {},
+  "humans": {
+    "h_f90ee31b03fc41": {
+      "author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
