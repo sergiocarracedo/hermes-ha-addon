@@ -1,0 +1,16 @@
+CHANGELOG.md
+  h_f90ee31b03fc41 3-6
+hermes/config.yaml
+  h_f90ee31b03fc41 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "71c8beccbbe1fe3bcc94738eb667a296992bf5c1",
+  "prompts": {},
+  "humans": {
+    "h_f90ee31b03fc41": {
+      "author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
