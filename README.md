@@ -31,10 +31,6 @@ Use the floating **>_** button in the dashboard to open a terminal when you need
 
 Installing this add-on does not migrate data from another Hermes installation.
 
-## Use with OpenCode Go
-
-Select Hermes's built-in **OpenCode Go** provider and add your OpenCode credentials in the dashboard or terminal. Hermes automatically sends the `x-opencode-session` header for this provider. If you use a custom endpoint instead, it must resolve to an OpenCode target for Hermes to attach that header.
-
 ## Updates
 
 New add-on releases appear in Home Assistant's add-on page. Select **Update**, then restart Hermes when Home Assistant prompts you. Published releases include amd64 and aarch64 images, so Home Assistant downloads the image instead of building Hermes on the device.
