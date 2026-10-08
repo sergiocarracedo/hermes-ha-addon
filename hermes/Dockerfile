@@ -6,7 +6,7 @@ ARG BUILD_VERSION
 ARG BUILD_ARCH
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends nginx nano \
+    && apt-get install -y --no-install-recommends curl nginx nano \
     && rm -rf /var/lib/apt/lists/* \
     && arch="$(uname -m)" \
     && curl -fsSL "https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.${arch}" -o /usr/local/bin/ttyd \
