@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.9.24-11
+
+- Install curl in the add-on container.
+
 ## 2026.9.24-10
 
 - Install nano in the add-on container.

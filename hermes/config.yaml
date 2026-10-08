@@ -1,5 +1,5 @@
 name: Hermes Agent
-version: "2026.9.24-10"
+version: "2026.9.24-11"
 slug: hermes
 description: Hermes Agent dashboard and terminal in Home Assistant
 url: https://github.com/sergiocarracedo/hermes-ha-addon
