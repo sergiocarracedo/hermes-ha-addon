@@ -1,0 +1,14 @@
+README.md
+  h_f90ee31b03fc41 3-7,11-38,40,42,44,46-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4342cbe13c9554f1326ca24953d996224018535a",
+  "prompts": {},
+  "humans": {
+    "h_f90ee31b03fc41": {
+      "author": "Sergio Carracedo <hi@sergiocarracedo.es>"
+    }
+  }
+}
