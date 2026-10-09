@@ -1,6 +1,6 @@
 ARG BUILD_VERSION
 ARG BUILD_ARCH
-FROM nousresearch/hermes-agent:v2026.9.24
+FROM nousresearch/hermes-agent:v0.21.6
 
 ARG BUILD_VERSION
 ARG BUILD_ARCH

@@ -1,6 +1,9 @@
 # Changelog
 
-## 2026.9.24-11
+## 2026.10.8-1
+
+- Update Hermes Agent to [v0.21.6](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6).
+
 
 - Install curl in the add-on container.
 
