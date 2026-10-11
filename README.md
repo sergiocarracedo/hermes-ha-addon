@@ -31,6 +31,18 @@ Use the floating **>_** button in the dashboard to open a terminal when you need
 
 Installing this add-on does not migrate data from another Hermes installation.
 
+## Himalaya email CLI
+
+The add-on includes [Himalaya](https://pimalaya.org/), a command-line email client. In the add-on's **Configuration** tab, paste your TOML configuration into **Himalaya configuration**. Saved changes are written immediately to:
+
+```text
+/opt/data/.config/himalaya/config.toml
+```
+
+That path is Hermes's `$HOME/.config/himalaya/config.toml` and persists across add-on updates. Leave the field empty to retain a configuration created from the terminal or Himalaya's setup wizard. The configuration can contain mail credentials, so use app passwords where available and restrict access to Home Assistant administrators.
+
+See the [Himalaya configuration guide](https://github.com/pimalaya/himalaya#configuration) for the TOML format and account examples.
+
 ## Updates
 
 New add-on releases appear in Home Assistant's add-on page. Select **Update**, then restart Hermes when Home Assistant prompts you. Published releases include amd64 and aarch64 images, so Home Assistant downloads the image instead of building Hermes on the device.

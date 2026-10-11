@@ -1,0 +1,7 @@
+configuration:
+  himalaya_config:
+    name: Himalaya configuration
+    description: >-
+      Himalaya TOML configuration. Saved changes are applied immediately to
+      $HOME/.config/himalaya/config.toml. Leave empty to preserve a file
+      created from the terminal or Himalaya setup wizard.

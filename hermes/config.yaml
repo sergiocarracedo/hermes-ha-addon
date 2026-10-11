@@ -18,5 +18,7 @@ panel_icon: mdi:robot-outline
 map:
   - type: data
     path: /opt/data
-options: {}
-schema: {}
+options:
+  himalaya_config: ""
+schema:
+  himalaya_config: str
