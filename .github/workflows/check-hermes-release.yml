@@ -21,6 +21,8 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.repository.default_branch }}
       - name: Bump stable Hermes version
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: bash .github/scripts/bump-hermes.sh
       - name: Commit and publish add-on release
         env:

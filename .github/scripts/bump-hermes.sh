@@ -8,9 +8,15 @@ changelog="$root/CHANGELOG.md"
 release_json="$(mktemp)"
 trap 'rm -f "$release_json"' EXIT
 
-curl -fsSL \
-  -H 'Accept: application/vnd.github+json' \
-  -H 'X-GitHub-Api-Version: 2022-11-28' \
+curl_args=(
+  -fsSL
+  -H 'Accept: application/vnd.github+json'
+  -H 'X-GitHub-Api-Version: 2022-11-28'
+)
+if [[ -n "${GITHUB_TOKEN:-}" ]]; then
+  curl_args+=(-H "Authorization: Bearer $GITHUB_TOKEN")
+fi
+curl "${curl_args[@]}" \
   https://api.github.com/repos/NousResearch/hermes-agent/releases/latest \
   -o "$release_json"
 
