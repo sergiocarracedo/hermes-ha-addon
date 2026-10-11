@@ -1,0 +1,64 @@
+name: Release add-on
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - hermes/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: addon-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    env:
+      SOURCE_SHA: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Skip commits included in a newer release
+        id: duplicate
+        run: |
+          latest_tag="$(git tag --list 'v[0-9]*' --sort=-version:refname | head -n1)"
+          if [[ -n "$latest_tag" ]] && git merge-base --is-ancestor "$SOURCE_SHA" "$latest_tag"; then
+            echo "The source commit is already included in $latest_tag."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Bump add-on version and publish release
+        if: steps.duplicate.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          today="$(date -u +'%Y.%-m.%-d')"
+          current="$(sed -n -E 's/^version: "([^"]+)"$/\1/p' hermes/config.yaml)"
+          revision=1
+          if [[ "$current" =~ ^${today//./\.}-([0-9]+)$ ]]; then
+            revision=$((BASH_REMATCH[1] + 1))
+          fi
+          version="${today}-${revision}"
+
+          sed -i -E "s/^version: .*/version: \"${version}\"/" hermes/config.yaml
+          temporary="$(mktemp)"
+          {
+            printf '# Changelog\n\n## %s\n\n- Publish add-on changes.\n\n' "$version"
+            sed '1,3d' CHANGELOG.md
+          } > "$temporary"
+          mv "$temporary" CHANGELOG.md
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md hermes/config.yaml
+          git commit -m "chore: release ${version}"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
+          gh release create "v${version}" \
+            --title "Hermes Agent add-on ${version}" \
+            --notes "Publishes add-on changes merged into main."
