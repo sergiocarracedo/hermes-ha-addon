@@ -1,6 +1,9 @@
 # Changelog
 
-## 2026.10.11-1
+## 2026.10.12-1
+
+- Update Hermes Agent to [v0.21.7](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.7).
+
 
 - Publish add-on changes.
 
