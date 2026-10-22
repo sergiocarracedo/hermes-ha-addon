@@ -29,6 +29,8 @@ Run [Hermes Agent](https://github.com/NousResearch/hermes-agent) in Home Assista
 
 Use the floating **>_** button in the dashboard to open a terminal when you need to run Hermes commands directly. Hermes stores its configuration, credentials, chats, skills, and other persistent data in the add-on data directory (`/opt/data`).
 
+Home Assistant app backups preserve that state, but exclude `/opt/data/installs/`: Hermes execution environments contain regenerable tool downloads such as Chromium and FFmpeg, which can otherwise make backups several gigabytes larger. Hermes recreates an environment when it needs one after a restore.
+
 Installing this add-on does not migrate data from another Hermes installation.
 
 ## Himalaya email CLI

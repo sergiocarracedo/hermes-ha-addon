@@ -8,6 +8,7 @@ on:
       - hermes/**
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -62,3 +63,6 @@ jobs:
           gh release create "v${version}" \
             --title "Hermes Agent add-on ${version}" \
             --notes "Publishes add-on changes merged into main."
+          gh workflow run publish-image.yml \
+            --ref "${{ github.event.repository.default_branch }}" \
+            -f version="${version}"

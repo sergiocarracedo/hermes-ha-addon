@@ -18,6 +18,10 @@ panel_icon: mdi:robot-outline
 map:
   - type: data
     path: /opt/data
+# Execution environments contain regenerable Chromium, FFmpeg, and tool
+# downloads. Preserve Hermes state while keeping app backups practical.
+backup_exclude:
+  - "installs/**"
 options:
   himalaya_config: ""
 schema:

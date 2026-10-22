@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Exclude regenerable Hermes execution environments from app backups.
+
 ## 2026.10.21-1
 
 - Update Hermes Agent to [v0.22.4](https://github.com/NousResearch/hermes-agent/releases/tag/v0.22.4).
@@ -18,7 +22,6 @@
 
 
 - Publish add-on changes.
-
 
 - Update Hermes Agent to [v0.21.6](https://github.com/NousResearch/hermes-agent/releases/tag/v0.21.6).
 
