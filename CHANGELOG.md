@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased
+## 2026.10.22-1
+
+- Publish add-on changes.
+
 
 - Exclude regenerable Hermes execution environments from app backups.
 
