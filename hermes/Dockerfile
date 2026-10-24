@@ -1,7 +1,7 @@
 ARG BUILD_VERSION
 ARG BUILD_ARCH
 ARG HIMALAYA_VERSION=2.2.1
-FROM nousresearch/hermes-agent:v0.22.4
+FROM nousresearch/hermes-agent:v0.22.5
 
 ARG BUILD_VERSION
 ARG BUILD_ARCH
